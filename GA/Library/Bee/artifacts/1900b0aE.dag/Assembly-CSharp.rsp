@@ -375,6 +375,8 @@
 "Assets/Scripts/DeepFryerBehaviour.cs"
 "Assets/Scripts/FoodRack.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/MeatBehaviour.cs"
+"Assets/Scripts/MeatPieContainerBehaviour.cs"
 "Assets/Scripts/PotatoBehaviour.cs"
 "Assets/Scripts/ScenesSwitch.cs"
 "Assets/Scripts/WrapBehavioiur.cs"
