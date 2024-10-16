@@ -5,14 +5,13 @@ using UnityEngine;
 public class MeatBehaviour : MonoBehaviour
 {
 
-    public bool canTurn = false;
+    public bool isTurn = false;
     public bool isOverCooked = false;
     public bool isReady = false;
 
     public float cookingTime;
     public float overCookTime;
     private float increaseCounter;
-    private float cookCounter;
     public SpriteRenderer objectRenderer;
 
     private GameObject container;
@@ -21,7 +20,6 @@ public class MeatBehaviour : MonoBehaviour
     void Start()
     {
         cookingTime = 8f;
-        cookCounter = 0;
         overCookTime = cookingTime * 2;
         objectRenderer = GetComponent<SpriteRenderer>();
         increaseCounter = 0;
@@ -35,15 +33,14 @@ public class MeatBehaviour : MonoBehaviour
         if (this.gameObject.activeSelf)
         {
             increaseCounter += Time.deltaTime;
-            Debug.Log("Increase counter: " + increaseCounter);
+            Debug.Log("Increase counter: " + increaseCounter + ", isTurn = " + isTurn + ", isOverCooked: " + isOverCooked + ", isReady: " + isReady);
             // If the time is up and the meat pie can turn, set it to true
-            if (increaseCounter >= cookingTime && !isReady)
+            if (increaseCounter >= cookingTime && isTurn == false)
             {
-                canTurn = true;
                 objectRenderer.color = Color.green;
             }
             // If the time is up and meat pie cannot turn, means it's ready
-            if (increaseCounter >= cookingTime && !canTurn)
+            if (increaseCounter >= cookingTime && isTurn == true)
             {
                 isReady = true;
                 objectRenderer.color = Color.blue;
@@ -61,24 +58,25 @@ public class MeatBehaviour : MonoBehaviour
     {
         Debug.Log("TEEESSST");
         // Turn the meat pie if it can turn and reset the timer to start a new count down
-        if (canTurn == true)
+        if (isTurn == false && increaseCounter >= cookingTime)
         {
-            canTurn = false;
+            isTurn = true;
             objectRenderer.color = Color.white;
             increaseCounter = 0;
         }
-        if (canTurn == false && isReady == true)
+        if (isTurn == true && isReady == true)
         {
             // If the meat pie is ready, put it into the container and reset all properties
             // If it's not, the timer is still going and it will overcook
             if (!container.GetComponent<MeatPieContainerBehaviour>().isFull)
             {
                 container.GetComponent<MeatPieContainerBehaviour>().currentCapacity += 1;
-                canTurn = false;
+                isTurn = false;
                 isOverCooked = false;
                 isReady = false;
                 // This is the test code, will delete after use
                 objectRenderer.color = Color.white;
+                increaseCounter = 0;
                 //this.gameObject.SetActive(false);
             }
             
@@ -87,7 +85,7 @@ public class MeatBehaviour : MonoBehaviour
         // Reset the meat pie if it's overcooked
         if (isOverCooked)
         {
-            canTurn = false;
+            isTurn = false;
             isOverCooked = false;
             isReady = false;
             //this.gameObject.SetActive(false);

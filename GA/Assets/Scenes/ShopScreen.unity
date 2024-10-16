@@ -1028,6 +1028,8 @@ GameObject:
   m_Component:
   - component: {fileID: 549511959}
   - component: {fileID: 549511960}
+  - component: {fileID: 549511961}
+  - component: {fileID: 549511962}
   m_Layer: 0
   m_Name: MeatPieContainer
   m_TagString: Untagged
@@ -1102,6 +1104,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &549511961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549511958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b559b6ceccf16c47ba22b774f3012c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 4
+  currentCapacity: 0
+  isFull: 0
+--- !u!65 &549511962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549511958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0000001, z: 0.2}
+  m_Center: {x: -0.00000047683716, y: 0, z: 0}
 --- !u!1 &634483188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1471,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1492,7 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411887d2f9600942b16fd84321e76d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTurn: 0
+  isTurn: 0
   isOverCooked: 0
   isReady: 0
   cookingTime: 8
@@ -2696,7 +2734,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2755,7 +2793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411887d2f9600942b16fd84321e76d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTurn: 0
+  isTurn: 0
   isOverCooked: 0
   isReady: 0
   cookingTime: 8
@@ -3744,7 +3782,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3803,7 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411887d2f9600942b16fd84321e76d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTurn: 0
+  isTurn: 0
   isOverCooked: 0
   isReady: 0
   cookingTime: 8
@@ -3883,7 +3921,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3942,7 +3980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411887d2f9600942b16fd84321e76d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canTurn: 0
+  isTurn: 0
   isOverCooked: 0
   isReady: 0
   cookingTime: 8
